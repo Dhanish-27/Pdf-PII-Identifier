@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption/Decryption</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.section {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #35424a;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #2c3e50;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>File Encryption and Decryption</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="checking">Encrypt File</a></li>
+                <li><a href="decrypt">Decrypt File</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="#"> {{user.username}}</a></li>
+                <li><a href="accounts/logout_user">Logout</a></li>
+                {% else %}
+                <li><a href="accounts/login_user">Login</a></li>
+                <li><a href="accounts/register_user">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <section id="encrypt" class="section">
+            <h2>What is Encryption to a File</h2>
+            <p>Encryption is the process of transforming plain, readable data into an unreadable format called ciphertext using specific algorithms and a key. This ensures that the information remains secure and inaccessible to unauthorized users during storage or transmission.</p>
+        </section>
+
+        <section id="decrypt" class="section">
+            <h2>How works description</h2>
+            <p>Decryption is the reverse process, where the ciphertext is converted back into its original readable format using the correct key or method. It ensures that authorized users can access the secured information when needed.</p>
+            
+        </section>
+
+        
+
+        <footer>
+            <p>&copy; 2023 File Encryption Service</p>
+        </footer>
+    </div>
+</body>
+</html>
